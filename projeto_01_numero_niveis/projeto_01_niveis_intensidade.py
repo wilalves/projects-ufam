@@ -1,7 +1,7 @@
 '''
     Escreva um programa de computador capaz de reduzir o número de níveis de intensidade
-    em uma imagem de 256 a 2 em incrementos inteiros de potencia de 2. O número de níveis
-    de intensidade deve ser uma variavel de entrada do seu programa
+    em uma imagem de 256 a 2 em incrementos inteiros de potencia de 2.
+    O número de níveis de intensidade deve ser uma variavel de entrada do seu programa
 '''
 
 from PIL import Image
@@ -42,7 +42,7 @@ maior = 0
 
 for m in range(M):
     for n in range(N):
-        out_pixel[m,n] = round((Nc/256)*in_pixel[m,n])
+        out_pixel[m,n] = round((Nc/255)*in_pixel[m,n])
 
 for m in range(M):
     for n in range(N):
@@ -56,7 +56,7 @@ for m in range(M):
     for n in range(N):
         out_pixel[m,n] = round(255 * ((out_pixel[m, n] - menor)/(maior - menor)))
 
-out_img.save('foto'+ str(number) + '.png', 'png')
+out_img.save('out_image_python-'+ str(number) + '.png', 'png')
 
 # Mostra imagem de saida
 out_img.show()
