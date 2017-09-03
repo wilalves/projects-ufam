@@ -6,34 +6,34 @@
 
 from PIL import Image
 
-#Entrada do numero
+# Entrada do numero
 number = int(input('Digite Aqui a quantidade de Bits'))
 
-#path da imagem
+# Path da imagem
 src_image = "../../img/Fig0221.tif"
 
-#Numero de Bits
+# Numero de Bits
 K = number
 
-#niveis de cinza
+# Niveis de cinza
 Nc = 2 ** K
 
-#Imagem de entrada
+# Imagem de entrada
 in_img = Image.open(src_image)
 
-#Salvar imagem de entrada
+# Salvar imagem de entrada
 in_img.save('in_image.png', 'png')
 
 #mostra imagem de entrada
 in_img.show()
 
-#carrega na variavel a imagem de entrada
+# Carrega na variavel a imagem de entrada
 in_pixel = in_img.load()
 
 # Tamanho da imagem LINHAS, COLUNAS
 M, N = in_img.size
 
-#Imagem de saida
+# Imagem de saida
 out_img = Image.new("L", (M,N))
 out_pixel = out_img.load()
 
@@ -58,5 +58,5 @@ for m in range(M):
 
 out_img.save('foto'+ str(number) + '.png', 'png')
 
-#mostra imagem de saida
+# Mostra imagem de saida
 out_img.show()
