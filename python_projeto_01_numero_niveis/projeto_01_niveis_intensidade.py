@@ -10,7 +10,7 @@ from PIL import Image
 number = int(input('Digite Aqui a quantidade de Bits'))
 
 # Path da imagem
-src_image = "../../img/Fig0221.tif"
+src_image = "../img/Fig0221.tif"
 
 # Numero de Bits
 K = number
