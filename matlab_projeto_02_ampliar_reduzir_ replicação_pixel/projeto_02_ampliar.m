@@ -1,7 +1,7 @@
-% Escreva um programa capaz de ampliar e reduzir uma imagem por replicação
-% de pixel. Assuma que os fatores de ampliação/redução sejam inteiros;
+% Escreva um programa capaz de ampliar e reduzir uma imagem por replicaï¿½ï¿½o
+% de pixel. Assuma que os fatores de ampliaï¿½ï¿½o/reduï¿½ï¿½o sejam inteiros;
 
-% Caminho do arquivo que deverá ser modificado
+% Caminho do arquivo que deverï¿½ ser modificado
 path = 'matlab_image_32.png';
 
 I = imread(path);
@@ -9,7 +9,7 @@ I = imread(path);
 [M, N] = size(I);
 
 % Inteiro de entrada
-f = 32;
+f = 2;
 
 M1 = M * f;
 N1 = N * f;
@@ -50,4 +50,4 @@ end
 imshow(I, []);
 figure;
 imshow(I_out, []);
-% imwrite(I_out,'Fig0219(zoom1024).tif');
+imwrite(I_out,'Fig0219_zoom_1024).tif');
