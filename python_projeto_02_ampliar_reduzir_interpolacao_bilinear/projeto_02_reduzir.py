@@ -21,7 +21,9 @@ in_pixel = in_img.load()
 reducao = int(input("Digite quanto vc quer que diminua"))
 
 MM = round(M / reducao)
+print(str(MM))
 NN = round(N / reducao)
+print(str(NN))
 
 k = 1
 l = 1
@@ -38,7 +40,7 @@ for m in range(MM):
     l = 1
     k = k + reducao
 
-out_img.save('out_image_python.png', 'png')
+out_img.save('out_image_XXX_python.png', 'png')
 
 # Mostra imagem de saida
 out_img.show()
