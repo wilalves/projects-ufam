@@ -42,7 +42,7 @@ maior = 0
 
 for m in range(M):
     for n in range(N):
-        out_pixel[m,n] = round((Nc/255)*in_pixel[m,n])
+        out_pixel[m,n] = round((Nc/256)*in_pixel[m,n])
 
 for m in range(M):
     for n in range(N):
