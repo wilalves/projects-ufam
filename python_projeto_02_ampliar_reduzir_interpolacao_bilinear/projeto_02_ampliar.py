@@ -18,10 +18,10 @@ M, N = in_img.size
 in_pixel = in_img.load()
 
 # Entrada da redução
-reducao = int(input("Digite quanto vc quer que diminua"))
+aumentar = int(input("Digite quanto vc quer que amplie"))
 
-MM = round(M / reducao)
-NN = round(N / reducao)
+MM = M * aumentar
+NN = N * aumentar
 
 k = 1
 l = 1
@@ -33,10 +33,24 @@ out_pixel = out_img.load()
 
 for m in range(MM):
     for n in range(NN):
+
         out_pixel[m,n] = in_pixel[k,l]
-        l = l + reducao
+        l = l + 1
     l = 1
-    k = k + reducao
+    k = k + 1
+
+for m in range(MM):
+    for n in range(2, NN):
+        out_pixel[m,n] = in_pixel[m,n-1]
+
+for m in range(MM):
+    for n in range(2, NN):
+        out_pixel[m,n] = in_pixel[m-1,n]
+
+for m in range(2, MM):
+    for n in range(2, NN):
+        out_pixel[m,n] = in_pixel[m,n-1]
+
 
 out_img.save('out_image_python.png', 'png')
 
