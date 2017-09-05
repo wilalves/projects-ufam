@@ -20,7 +20,7 @@ I = imread(path);
 [M, N] = size(I);
 
 imshow(I,[]);
-title('Imagem original')
+title('Imagem original');
 
 %Criando uma imagem de saida do mesmo tamanho da de entrada
 I_out = zeros(M,N);
@@ -28,11 +28,11 @@ I_out = zeros(M,N);
 %Calculando os novos níveis de cinza para imagem
 for m = 1:M
     for n = 1:N
-        I_out(m,n) = (Nc/255)*I(m,n);
+        I_out(m,n) = (Nc/256)*I(m,n);
     end
 end
 
-imwrite(I_out, 'matlab_imagem_8.png')
+imwrite(I_out, 'matlab_imagem_8.png');
 
 figure();
-imshow(I_out,[]);
+imshow(I_out, []);
