@@ -2,14 +2,14 @@ import math
 from PIL import Image
 
 # Entrada do numero
-number = int(input('Digite Aqui a quantidade de Bits'))
+number = int(input('Digite aqui o parametro C'))
 
 # Path da imagem
 src_img = '../img/Fig0308.tif'
 
 # Imagem de entrada
 in_img = Image.open(src_img)
-
+in_img.show()
 
 [M, N] = in_img.size
 

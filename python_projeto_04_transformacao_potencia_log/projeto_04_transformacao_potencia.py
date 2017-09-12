@@ -2,8 +2,8 @@ import math
 from PIL import Image
 
 # Entrada do numero
-number = int(input('Digite Aqui a quantidade de Bits'))
-lambd =  int(input('Digite Aqui a quantidade de Bits'))
+number = int(input('Digite aqui o parametro C'))
+lambd =  float(input('Digite aqui o parametro gamma'))
 
 # Path da imagem
 src_img = '../img/Fig0308.tif'
@@ -27,6 +27,6 @@ for m in range(M):
         out_pixel[m,n] = round(number*((in_pixel[m,n]) ** lambd))
 
 
-out_img.save('out_image_python-'+ str(number) + '.png', 'png')
+out_img.save('out_image_python-po'+ str(number) + '.png', 'png')
 
 out_img.show()
