@@ -23,22 +23,27 @@ aumentar = int(input("Digite quanto vc quer que amplie"))
 MM = M * aumentar
 NN = N * aumentar
 
-w = 1
-h = 1
+w = 0
+h = 0
 
 # Imagem de saida
 out_img = Image.new("L", (MM,NN))
 W, H = out_img.size
 out_pixel = out_img.load()
 
-for m in range(1, W):
-    for n in range(1, H):
+for m in range(0, W, aumentar):
+    for n in range(0, H, aumentar):
         out_pixel[m,n] = in_pixel[w,h]
         h = h + 1
-    h = 1
+    h = 0
     w = w + 1
 
-out_img.save('out_image_python.png', 'png')
+for m in range(0, W, aumentar):
+    for n in range(1, H, aumentar):
+        out_pixel[m,n] = out_pixel[m,n-1]
+
+
+out_img.save('out_2-4image_python.png', 'png')
 
 # Mostra imagem de saida
 out_img.show()
