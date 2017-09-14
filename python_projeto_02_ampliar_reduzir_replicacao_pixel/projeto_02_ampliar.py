@@ -6,7 +6,7 @@
 from PIL import Image
 
 # Path da imagem
-src_image = "out_image_32_python.png"
+src_image = "out_image_256_python.png"
 
 # Imagem de entrada
 in_img = Image.open(src_image)
@@ -42,6 +42,13 @@ for m in range(0, W, aumentar):
     for n in range(1, H, aumentar):
         out_pixel[m,n] = out_pixel[m,n-1]
 
+for m in range(1, W, aumentar):
+    for n in range(0, H, aumentar):
+        out_pixel[m,n] = out_pixel[m-1,n]
+
+for m in range(1, W, aumentar):
+    for n in range(1, H, aumentar):
+        out_pixel[m,n] = out_pixel[m,n-1]
 
 out_img.save('out_2-4image_python.png', 'png')
 
