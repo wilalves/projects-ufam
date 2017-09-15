@@ -26,23 +26,23 @@ out_pixel_DONE = out_img_DONE.load()
 
 
 for m in range(MM):
-    out_img_MM.append(M - (M - 1)* (MM - out_img_MM[m]) / MM - 1)
+    out_img_MM.append(M - (M - 1) * (MM - m) / MM - 1)
 
 for n in range(MM):
-    out_img_NN[n] = N - (N - 1)* (NN - out_img_NN[n]) / NN - 1
+    out_img_NN.append(N - (N - 1) * (NN - n) / NN - 1)
 
 
 for i in range(MM):
     for j in range(NN):
         X = round(out_img_MM[i])
-        XP = round(out_img_MM[i]+0.499)
+        XP = round(out_img_MM[i] + 0.499)
         Y = round(out_img_NN[j])
         YP = round(out_img_NN[j] + 0.499)
 
         U = out_img_NN[j] - Y
         A = out_img_MM[i] - XP
 
-        out_img_DONE[i,j] = A * (U * in_pixel(XP,YP)+(1-U)*in_pixel(XP,Y))+ (1 - A) * (U*in_pixel[X,YP]+(1-U)*in_pixel[xy])
+        out_img_DONE[i,j] = A * (U * in_pixel[XP,YP]+(1-U)*in_pixel[XP,Y])+ (1 - A) * (U*in_pixel[X,YP]+(1-U)*in_pixel[X,Y])
 
 
 out_img_DONE.show()
