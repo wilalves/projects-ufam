@@ -11,8 +11,10 @@ M, N = in_img.size
 
 resolucao_in = in_img.info['dpi'][0]
 
-MM = round(M*100/resolucao_in)
-NN = round(N*100/resolucao_in)
+#inToDo
+#essa resolução esta fixa mas deve ser inserida pelo usuario
+MM = round(M*1250/resolucao_in)
+NN = round(N*1250/resolucao_in)
 
 # Imagem de saida
 out_img_MM = []
@@ -28,7 +30,7 @@ out_pixel_DONE = out_img_DONE.load()
 for m in range(MM):
     out_img_MM.append(M - (M - 1) * (MM - m) / MM - 1)
 
-for n in range(MM):
+for n in range(NN):
     out_img_NN.append(N - (N - 1) * (NN - n) / NN - 1)
 
 
@@ -42,7 +44,13 @@ for i in range(MM):
         U = out_img_NN[j] - Y
         A = out_img_MM[i] - XP
 
-        out_img_DONE[i,j] = A * (U * in_pixel[XP,YP]+(1-U)*in_pixel[XP,Y])+ (1 - A) * (U*in_pixel[X,YP]+(1-U)*in_pixel[X,Y])
+        um = in_pixel[XP,YP]
+        dois = in_pixel[XP,Y]
+        tres = in_pixel[X,YP]
+        quatro = in_pixel[X,Y]
 
+        out_pixel_DONE[i,j] = round(A * (U * um) + (1 - U) * dois + (1 - A) * (U * tres) + (1 - U) * quatro)
+
+out_img_DONE.save('out_100_DPI_image_python.png', 'png')
 
 out_img_DONE.show()
