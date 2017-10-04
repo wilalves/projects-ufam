@@ -19,10 +19,16 @@ Para Instalar o git basta baixar nesse link <https://git-scm.com/downloads>
 <br>
 Para Instalar o pyenv basta baixar nesse link  <https://github.com/pyenv/pyenv>
 
+A simplicidade que instalaremos o python com a pyenv, com um simples comando ja vai esta tudo configurado.
+Estamos usando o python 3.6, então instalaremos ele com esse comando:
+<blockquote>pyenv install 3.6</blockquote>
+A lib que estamos usando é a Pillow, para instala basta executar o comando:
+<blockquote>pip install Pillow</blockquote>
+
 Cada um de acordo com seu sistema operacional.
 
-Instalado o pyenv vamos criar uma Venv e ativa-la, os passos vc encontra tbm no link da ferramenta
-
+Instalado o pyenv vamos criar uma Venv e ativa-la, os passos vc encontra tbm no link da ferramenta.
+<br>
 Instalado o git vamos baixar o repositorio com o comando
 <blockquote> git clone https://github.com/WilAlves/projects-ufam.git </blockquote>
 
