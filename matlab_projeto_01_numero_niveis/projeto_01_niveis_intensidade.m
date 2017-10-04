@@ -11,7 +11,7 @@ path = './img/Fig0221.tif';
 % K = 0;
 
 k = input('Digite o numero de bits');
-Nc = 2 .^ k;
+Nc = 2 .^ k - 1;
 
 % Imagem de entrada 
 I = imread(path);
