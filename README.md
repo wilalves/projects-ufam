@@ -23,7 +23,9 @@ A simplicidade que instalaremos o python com a pyenv, com um simples comando ja 
 Estamos usando o python 3.6, então instalaremos ele com esse comando:
 <blockquote>pyenv install 3.6</blockquote>
 A lib que estamos usando é a Pillow, para instala basta executar o comando:
-<blockquote>pip install Pillow</blockquote>
+
+Criamos um requirements para colocarmos todas as dependencias
+<blockquote>pip3 install -r requirements.txt</blockquote>
 
 Cada um de acordo com seu sistema operacional.
 
