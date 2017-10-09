@@ -16,7 +16,7 @@ src_image = "../img/Fig0221.tif"
 K = number
 
 # Niveis de cinza
-Nc = 2 ** K
+Nc = (2 ** K) - 1
 
 # Imagem de entrada
 in_img = Image.open(src_image)
