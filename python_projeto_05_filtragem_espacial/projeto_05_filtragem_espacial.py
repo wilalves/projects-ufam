@@ -9,15 +9,24 @@ def meu_filtro(imagem, mascara):
     out_img = Image.new("L", (M + 2, N + 2))
     out_pixel = out_img.load()
 
+    print(out_img)
+
     for m in range(M):
         for n in range(N):
             out_pixel[m, n] = in_pixel[m, n]
 
     # Duplica as ultimas linhas e as ultimas colunas
-    out_pixel[0, 0:N+1] = int(out_pixel[1, 0:N+1])
-    out_pixel[M+1, 0:N+1] = int(out_pixel[M+1, 0:N+1])
-    out_pixel[0:M+1, 0] = int(out_pixel[0:M+1, 1])
-    out_pixel[0:M+1, N+1] = int(out_pixel[0:M+1, N])
+    for a in range(0, N+1):
+        out_pixel[0, a] = out_pixel[1, a]
+
+    for a in range(0, N+1):
+        out_pixel[M+1, a] = out_pixel[M+1, a]
+
+    for a in range(0, M+1):
+        out_pixel[a, 0] = out_pixel[a, 1]
+
+    for a in range(0, M+1):
+        out_pixel[a, N+1] = out_pixel[a, N]
 
     print("aqui")
 
