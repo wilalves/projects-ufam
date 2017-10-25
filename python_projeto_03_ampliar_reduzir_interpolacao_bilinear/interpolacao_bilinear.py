@@ -3,7 +3,7 @@ from PIL import Image
 # def interpolacao_bilinear (self, src_image, resolucao):
 
     # Imagem de entrada
-src_image = "../img/Fig0220a.tif"
+src_image = "out_100_DPI_image_python.tif"
 in_img = Image.open(src_image)
 in_pixel = in_img.load()
 
@@ -51,6 +51,6 @@ for i in range(MM):
 
         out_pixel_DONE[i,j] = round(A * (U * um) + (1 - U) * dois + (1 - A) * (U * tres) + (1 - U) * quatro)
 
-out_img_DONE.save('out_100_DPI_image_python.png', 'png')
+out_img_DONE.save('out_1250_DPI_image_python.tif', 'tiff')
 
 out_img_DONE.show()
