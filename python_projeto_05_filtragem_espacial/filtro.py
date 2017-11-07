@@ -4,35 +4,20 @@
     -Isai B. Cicourel
 '''
 
-# Imported PIL Library
 from PIL import Image
 
-# Open an Image
 def open_image(path):
   newImage = Image.open(path)
   return newImage
 
-# Save Image
 def save_image(image, path):
   image.save(path, 'png')
 
 
-# Create a new image with the given size
 def create_image(i, j):
-  image = Image.new("L", (i, j))
+  image = Image.new("RGB", (i, j), "white")
   return image
 
-
-# Get the pixel from the given image
-def get_pixel(image, i, j):
-  # Inside image bounds?
-  width, height = image.size
-  if i > width or j > height:
-    return None
-
-  # Get Pixel
-  pixel = image.getpixel((i, j))
-  return pixel
 
 def meu_filtro(imagem, mascara):
     M, N = imagem.size
@@ -47,14 +32,14 @@ def meu_filtro(imagem, mascara):
     for m in range(2, M - 1):
         for n in range(2, N - 1):
             pixels[m - 1, n - 1] = \
-                pixels_mascara[0, 0] * get_pixel(nova, m - 1, n - 1) + \
-                pixels_mascara[0, 1] * get_pixel(nova, m - 1, n)   + \
-                pixels_mascara[0, 2] * get_pixel(nova, m - 1, n + 1) + \
-                pixels_mascara[1, 0] * get_pixel(nova, m, n - 1) + \
-                pixels_mascara[1, 1] * get_pixel(nova, m, n) + \
-                pixels_mascara[1, 2] * get_pixel(nova, m, n + 1) + \
-                pixels_mascara[2, 0] * get_pixel(nova, m + 1, n-1) + \
-                pixels_mascara[2, 1] * get_pixel(nova, m + 1, n) + \
-                pixels_mascara[2, 2] * get_pixel(nova, m + 1, n+1)
+                pixels_mascara[0, 0] * round(pixels[m - 1, n - 1]) + \
+                pixels_mascara[0, 1] * round(pixels[m - 1, n])     + \
+                pixels_mascara[0, 2] * round(pixels[m - 1, n + 1]) + \
+                pixels_mascara[1, 0] * round(pixels[m, n - 1])     + \
+                pixels_mascara[1, 1] * round(pixels[m, n])         + \
+                pixels_mascara[1, 2] * round(pixels[m, n + 1])     + \
+                pixels_mascara[2, 0] * round(pixels[m + 1, n-1])   + \
+                pixels_mascara[2, 1] * round(pixels[m + 1, n])     + \
+                pixels_mascara[2, 2] * round(pixels[m + 1, n+1])
 
     return nova
