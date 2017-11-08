@@ -1,7 +1,7 @@
 '''
-    This Example opens an Image and transform the image into grayscale, halftone, dithering, and primary colors.
-    You need PILLOW (Python Imaging Library fork) and Python 3.5.
-    -Isai B. Cicourel
+    This Example opens an Image and filtering.
+    You need PILLOW (Python Imaging Library fork) and Python 3.6.
+    - Willian Alves @willalves
 '''
 
 from PIL import Image
@@ -19,26 +19,26 @@ def create_image(i, j):
   return image
 
 
-def meu_filtro(imagem, mascara):
-    M, N = imagem.size
-    mm, nn = mascara.size
+def my_filter(image, mask):
+    # Definir quantidade de linhas e colunas, imagem e mascara
+    M, N = image.size
+    mm, nn = mask.size
 
-    # nova = create_image(M, N)
-    pixels = imagem.load()
+    # Ativa o modo processamento para manipular a imagem
+    pixels = image.load()
+    pixels_mask = mask.load()
 
-    # mascara = create_image(mm, nn)
-    pixels_mascara = mascara.load()
-
+    #Aplica o procedimento de convolução
     for m in range(1, M - 1):
         for n in range(1, N - 1):
             pixels[m - 1, n - 1] = \
-                (pixels_mascara[0, 0] * pixels[m - 1, n - 1]) + \
-                 (pixels_mascara[0, 1] * pixels[m - 1, n])     + \
-                  (pixels_mascara[0, 2] * pixels[m - 1, n + 1]) + \
-                   (pixels_mascara[1, 0] * pixels[m, n - 1])     + \
-                    (pixels_mascara[1, 1] * pixels[m, n])         + \
-                     (pixels_mascara[1, 2] * pixels[m, n + 1])     + \
-                      (pixels_mascara[2, 0] * pixels[m + 1, n-1])   + \
-                      (pixels_mascara[2, 1] * pixels[m + 1, n])     + \
-                      (pixels_mascara[2, 2] * pixels[m + 1, n+1])
-    return imagem
+                (pixels_mask[0, 0] * pixels[m - 1, n - 1]) + \
+                 (pixels_mask[0, 1] * pixels[m - 1, n])     + \
+                  (pixels_mask[0, 2] * pixels[m - 1, n + 1]) + \
+                   (pixels_mask[1, 0] * pixels[m, n - 1])     + \
+                    (pixels_mask[1, 1] * pixels[m, n])         + \
+                     (pixels_mask[1, 2] * pixels[m, n + 1])     + \
+                      (pixels_mask[2, 0] * pixels[m + 1, n-1])   + \
+                       (pixels_mask[2, 1] * pixels[m + 1, n])     + \
+                        (pixels_mask[2, 2] * pixels[m + 1, n+1])
+    return image
