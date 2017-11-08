@@ -15,7 +15,7 @@ def save_image(image, path):
 
 
 def create_image(i, j):
-  image = Image.new("RGB", (i, j), "white")
+  image = Image.new("L", (i, j), "white")
   return image
 
 
@@ -23,23 +23,22 @@ def meu_filtro(imagem, mascara):
     M, N = imagem.size
     mm, nn = mascara.size
 
-    nova = create_image(M, N)
-    pixels = nova.load()
+    # nova = create_image(M, N)
+    pixels = imagem.load()
 
-    mascara = create_image(mm, nn)
+    # mascara = create_image(mm, nn)
     pixels_mascara = mascara.load()
 
-    for m in range(2, M - 1):
-        for n in range(2, N - 1):
+    for m in range(1, M - 1):
+        for n in range(1, N - 1):
             pixels[m - 1, n - 1] = \
-                pixels_mascara[0, 0] * round(pixels[m - 1, n - 1]) + \
-                pixels_mascara[0, 1] * round(pixels[m - 1, n])     + \
-                pixels_mascara[0, 2] * round(pixels[m - 1, n + 1]) + \
-                pixels_mascara[1, 0] * round(pixels[m, n - 1])     + \
-                pixels_mascara[1, 1] * round(pixels[m, n])         + \
-                pixels_mascara[1, 2] * round(pixels[m, n + 1])     + \
-                pixels_mascara[2, 0] * round(pixels[m + 1, n-1])   + \
-                pixels_mascara[2, 1] * round(pixels[m + 1, n])     + \
-                pixels_mascara[2, 2] * round(pixels[m + 1, n+1])
-
-    return nova
+                (pixels_mascara[0, 0] * pixels[m - 1, n - 1]) + \
+                 (pixels_mascara[0, 1] * pixels[m - 1, n])     + \
+                  (pixels_mascara[0, 2] * pixels[m - 1, n + 1]) + \
+                   (pixels_mascara[1, 0] * pixels[m, n - 1])     + \
+                    (pixels_mascara[1, 1] * pixels[m, n])         + \
+                     (pixels_mascara[1, 2] * pixels[m, n + 1])     + \
+                      (pixels_mascara[2, 0] * pixels[m + 1, n-1])   + \
+                      (pixels_mascara[2, 1] * pixels[m + 1, n])     + \
+                      (pixels_mascara[2, 2] * pixels[m + 1, n+1])
+    return imagem
