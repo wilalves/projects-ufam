@@ -1,10 +1,11 @@
-from python_projeto_05_filtragem_espacial.filtro import my_filter
+from python_projeto_05_filtragem_espacial.filtro import *
+import numpy as np
 
 src_image = "../img/Fig0338.tif"
 
 # Carregar a imagem
 img_entrada = open_image(src_image)
-img_entrada.show()
+# img_entrada.show()
 
 # cria uma mascara 3x3
 mascara = create_image(3, 3)
@@ -19,19 +20,20 @@ for m in range(3):
 # Fazer a chamada do filtro
 img_filtrada = my_filter(img_entrada, mascara)
 
-'''
-Imagem_03=Imagem_01+uint8(Imagem_02);
-Imagem_04=Imagem_01-uint8(Imagem_02);
+img_a = np.add(img_entrada, img_filtrada)
+img_b = np.subtract(img_entrada, img_filtrada)
 
-Min_Imagem_02 = min(Imagem_02(:));
-Max_Imagem_02 = max(Imagem_02(:));
-Imagem_05 = (Imagem_02 - Min_Imagem_02) / (Max_Imagem_02 - Min_Imagem_02);
+img_max = np.amax(img_filtrada)
 
-imtool(Imagem_01);
-imtool(uint8(Imagem_02));
-imtool(Imagem_03);
-imtool(Imagem_04);
-imtool(Imagem_05);
-'''
+img_min = np.amin(img_filtrada)
 
+a = np.subtract(img_filtrada, img_min)
+b = np.subtract(img_max, img_min)
+
+img_c = np.divide(a, b)
+
+img_entrada.show()
 img_filtrada.show()
+img_a.show()
+img_b.show()
+img_c.show()
