@@ -32,7 +32,7 @@ Cada um de acordo com seu sistema operacional.
 Instalado o pyenv vamos criar uma Venv e ativa-la, os passos vc encontra tbm no link da ferramenta.
 <br>
 Instalado o git vamos baixar o repositorio com o comando
-<blockquote> git clone https://github.com/WilAlves/projects-ufam.git </blockquote>
+<blockquote> git clone https://github.com/willallves/projects-ufam.git </blockquote>
 
 Entrar no diretorio do exercicio que deseja executar e executar o comando acima
 <blockquote>python3 exercicio.py</blockquote>
